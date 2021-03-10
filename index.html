@@ -44,15 +44,23 @@
       // console.log('Successful login for: ' + response.name);
       console.log('Good to see you, ' + response.name + '.');
 			console.log('Your user_id , ' + response.id);
-      console.log('Successful login: ' + response);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+			console.log('Fisrt Name , ' + response.first_name);
+			console.log('Last Name , ' + response.last_name);
+      
+      const data = `
+        <p>Thanks for logging in, ${response.name}</p>
+        <p>Your user_id, ${response.name}</p>
+        <p>Fisrt Name, ${response.name}</p>
+        <p>Last Name, ${response.name}</p>
+        <img src=${response.picture.data.url} />
+      `
+      document.getElementById('status').innerHTML = data;
     });
   }
 
   function logout() {
     FB.logout((response) => {
-      alert("facebook logout");
+      // alert("facebook logout");
     });
   }
 </script>
@@ -64,8 +72,6 @@
 </fb:login-button>
 
 <button id="fb_logout" onclick="logout()" >facebook logout</button>
-<br><br>
-<button id="fb_login" onclick="login()" >facebook login</button>
 
 <div id="status">
 </div>
