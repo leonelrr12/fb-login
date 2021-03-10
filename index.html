@@ -50,11 +50,11 @@
       
       document.getElementById('status').innerHTML = 'Good to see you, ' + response.name + '.';
 
-      const data = "<p>Thanks for logging in, " + response.name + "</p>" +
-        "<p>Your user_id, "+ response.name + "</p>" +
-        "<p>Fisrt Name, " + response.first_name + "</p>" +
-        "<p>Last Name, " + response.last_name + "</p>" +
-        "<img src=" + response.picture.data.url + " />";
+      const data = "<p>Thanks for logging in, " + response.name + "</p>" // +
+        // "<p>Your user_id, " + response.name + "</p>" +
+        // "<p>Fisrt Name, " + response.first_name + "</p>" +
+        // "<p>Last Name, " + response.last_name + "</p>" +
+        // "<img src=" + response.picture.data.url + " />";
 
       console.log('data',data);
     });
