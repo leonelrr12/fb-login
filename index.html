@@ -52,10 +52,8 @@
       
       let data = "<p>Thanks for logging in, " + response.name + "</p>" 
       data += " <p>Your user_id, " + response.name + "</p>"
-      data += " <p>Fisrt Name, " + response.first_name + "</p>"
-      data += " <p>Last Name, " + response.last_name + "</p>"
-      // data += " <img src='" + response.picture.data.url + "' />"
-      
+      data += " <p>Email, " + response.email + "</p>"
+ 
       console.log('data',data);
       document.getElementById('status').innerHTML = data; //'Good to see you, ' + response.name + '.';
     });
