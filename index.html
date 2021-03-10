@@ -9,7 +9,8 @@
 
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
+    console.log(response);      
+                 // The current login status of the person.
     if (response.status === 'connected') {   // Logged into your webpage and Facebook.
       testAPI();  
     } else {                                 // Not logged into your webpage or we are unable to tell.
@@ -38,8 +39,35 @@
     });
   };
  
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+  function testAPI() {                     
+    // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    
+    let ID = "";
+    let name = ";"
     console.log('Welcome!  Fetching your information.... ');
+    FB.api(
+      '/me',
+      'GET',
+      {"fields":"id,name"},
+      function(response) {
+          id = response.id;
+          name = response.name;
+          console.log('AAAAAA', name, id);
+      }
+    );
+
+    FB.api(
+      `/${ID}/permissions`,
+      'GET',
+      function(response) {
+        console.log('BBBBBBBB', response);
+      }
+    );
+    
+    FB.login(function(response) {
+      console.log('CCCCCCCCCCC', response);
+    }, {scope: 'user_birthday'});
+
     FB.api('/me', function(response) {
       // console.log('Successful login for: ' + response.name);
       console.log('Good to see you, ' + response.name + '.');
@@ -52,7 +80,15 @@
       data += " <p>Your user_id, " + response.name + "</p>"
       data += " <p>Email, " + response.email + "</p>"
  
-      console.log('data',data);
+      // id
+      // first_name
+      // last_name
+      // middle_name
+      // name
+      // name_format
+      // picture
+      // short_name
+
       document.getElementById('status').innerHTML = data; //'Good to see you, ' + response.name + '.';
     });
   }
