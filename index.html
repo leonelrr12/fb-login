@@ -48,6 +48,7 @@
 			console.log('Last Name , ' + response.last_name);
 			console.log('public_profile , ' + response.public_profile);
       
+
       const data = `
         <p>Thanks for logging in, ${response.name}</p>
         <p>Your user_id, ${response.name}</p>
@@ -57,7 +58,7 @@
       `;
 
       console.log('data',data);
-      document.getElementById('status').innerHTML = data;
+      document.getElementById('status').innerHTML = 'Good to see you, ' + response.name + '.';
     });
   }
 
