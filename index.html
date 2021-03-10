@@ -49,15 +49,14 @@
 			console.log('public_profile , ' + response.public_profile);
       
 
-      // const data = `
-      //   <p>Thanks for logging in, ${response.name}</p>
-      //   <p>Your user_id, ${response.name}</p>
-      //   <p>Fisrt Name, ${response.first_name}</p>
-      //   <p>Last Name, ${response.last_name}</p>
-      //   <img src=${response.picture.data.url} />
-      // `;
+      const data = 
+        "<p>Thanks for logging in, " + response.name + "</p>" +
+        "<p>Your user_id, "+ response.name + "</p>" +
+        "<p>Fisrt Name, " + response.first_name + "</p>" +
+        "<p>Last Name, " + response.last_name + "</p>" +
+        "<img src=" + response.picture.data.url + " />";
 
-      // console.log('data',data);
+      console.log('data',data);
       document.getElementById('status').innerHTML = 'Good to see you, ' + response.name + '.';
     });
   }
@@ -65,6 +64,8 @@
   function logout() {
     FB.logout((response) => {
       // alert("facebook logout");
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this webpage.';
     });
   }
 </script>
