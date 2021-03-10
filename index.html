@@ -46,12 +46,12 @@
 			console.log('Your user_id , ' + response.id);
 			console.log('Fisrt Name , ' + response.first_name);
 			console.log('Last Name , ' + response.last_name);
-      
+
       const data = `
         <p>Thanks for logging in, ${response.name}</p>
         <p>Your user_id, ${response.name}</p>
-        <p>Fisrt Name, ${response.name}</p>
-        <p>Last Name, ${response.name}</p>
+        <p>Fisrt Name, ${response.first_name}</p>
+        <p>Last Name, ${response.last_name}</p>
         <img src=${response.picture.data.url} />
       `
       document.getElementById('status').innerHTML = data;
@@ -68,7 +68,7 @@
 <h1>Login con Facebook SDK</h1>
 <!-- The JS SDK Login Button -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,first_name,last_name,picture" onlogin="checkLoginState();">
 </fb:login-button>
 
 <button id="fb_logout" onclick="logout()" >facebook logout</button>
