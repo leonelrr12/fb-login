@@ -18,13 +18,11 @@
     }
   }
 
-
   function checkLoginState() {               // Called when a person is finished with the Login Button.
     FB.getLoginStatus(function(response) {   // See the onlogin handler
       statusChangeCallback(response);
     });
   }
-
 
   window.fbAsyncInit = function() {
     FB.init({
@@ -43,12 +41,20 @@
   function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+      // console.log('Successful login for: ' + response.name);
+      console.log('Good to see you, ' + response.name + '.');
+			console.log('Your user_id , ' + response.id);
+      console.log('Successful login: ' + response);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
   }
 
+  function logout() {
+    FB.logout((response) => {
+      alert("facebook logout");
+    });
+  }
 </script>
 
 <h1>Login con Facebook SDK</h1>
@@ -56,6 +62,10 @@
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
+
+<button id="fb_logout" onclick="logout()" >facebook logout</button>
+<br><br>
+<button id="fb_login" onclick="login()" >facebook login</button>
 
 <div id="status">
 </div>
