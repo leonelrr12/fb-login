@@ -48,15 +48,16 @@
 			console.log('Last Name , ' + response.last_name);
 			console.log('public_profile , ' + response.public_profile);
       
-      document.getElementById('status').innerHTML = 'Good to see you, ' + response.name + '.';
-
+      // document.getElementById('status').innerHTML = 'Good to see you, ' + response.name + '.';
+      
       let data = "<p>Thanks for logging in, " + response.name + "</p>" 
       data += " <p>Your user_id, " + response.name + "</p>"
       data += " <p>Fisrt Name, " + response.first_name + "</p>"
       data += " <p>Last Name, " + response.last_name + "</p>"
       // data += " <img src='" + response.picture.data.url + "' />"
-
+      
       console.log('data',data);
+      document.getElementById('status').innerHTML = data; //'Good to see you, ' + response.name + '.';
     });
   }
 
