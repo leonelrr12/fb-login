@@ -64,14 +64,15 @@
                 console.log('FFFFFFFFFF', response);
             }
           );
-      }
-    );
 
-    FB.api(
-      `/${ID}/permissions`,
-      'GET',
-      function(response) {
-        console.log('BBBBBBBB', response);
+          FB.api(
+            `/${ID}/photos`,
+            'GET',
+            {},
+            function(response) {
+                console.log('FFFFFFAAAAAFFFF', response);
+            }
+          );
       }
     );
     
