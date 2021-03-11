@@ -48,11 +48,21 @@
     FB.api(
       '/me',
       'GET',
-      {"fields":"id,name,email"},
+      {"fields":"id,name"},
       function(response) {
           id = response.id;
           name = response.name;
-          console.log('AAAAAA', name, id, email);
+          console.log('AAAAAA', name, id);
+      }
+    );
+
+    FB.api(
+      `/${ID}/permissions`,
+      'GET',
+      {"fields":"birthday,email,hometown"},
+      function(response) {
+          // Insert your code here
+          console.log('FFFFFFFFFF', birthday,email,hometown);
       }
     );
 
