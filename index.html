@@ -54,18 +54,16 @@
           name = response.name;
           console.log('AAAAAA', name, ID);
           console.log(`/${ID}/permissions`);
-      }
-    );
 
-    console.log(`/${ID}/permissions`);
-
-    FB.api(
-      `/${ID}/permissions`,
-      'GET',
-      {"fields":"birthday,email,hometown"},
-      function(response) {
-          // Insert your code here
-          console.log('FFFFFFFFFF', birthday,email,hometown);
+          FB.api(
+            `/${ID}/permissions`,
+            'GET',
+            {"fields":"birthday,email,hometown"},
+            function(response) {
+                // Insert your code here
+                console.log('FFFFFFFFFF', birthday,email,hometown);
+            }
+          );
       }
     );
 
