@@ -53,11 +53,12 @@
           ID = response.id;
           name = response.name;
           console.log('AAAAAA', name, ID);
+          console.log(`/${ID}/permissions`);
       }
     );
 
     console.log(`/${ID}/permissions`);
-    
+
     FB.api(
       `/${ID}/permissions`,
       'GET',
