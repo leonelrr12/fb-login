@@ -45,6 +45,7 @@
     let ID = "";
     let name = ";"
     console.log('Welcome!  Fetching your information.... ');
+
     FB.api(
       '/me',
       'GET',
@@ -77,8 +78,15 @@
     );
     
     FB.login(function(response) {
-      console.log('CCCCCCCCCCC', response);
-    }, {scope: 'user_birthday'});
+      if (response.authResponse) {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Good to see you, ' + response.name + '.');
+        });
+      } else {
+        console.log('User cancelled login or did not fully authorize.');
+      }
+    });
 
     FB.api('/me', function(response) {
       // console.log('Successful login for: ' + response.name);
@@ -121,6 +129,11 @@
 </fb:login-button>
 
 <button id="fb_logout" onclick="logout()" >facebook logout</button>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v10.0&appId=481564122851726&autoLogAppEvents=1" nonce="Hd4djs98"></script>
+
+<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
 <div id="status">
 </div>
