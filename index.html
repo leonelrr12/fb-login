@@ -46,72 +46,72 @@
     let name = ";"
     console.log('Welcome!  Fetching your information.... ');
 
-    // FB.api(
-    //   '/me',
-    //   'GET',
-    //   {"fields":"id,name"},
-    //   function(response) {
-    //       ID = response.id;
-    //       name = response.name;
-    //       console.log('AAAAAA', name, ID);
-    //       console.log(`/${ID}/permissions`);
+    FB.api(
+      '/me',
+      'GET',
+      {"fields":"id,name,email,first_name,last_name,picture"},
+      function(response) {
+          ID = response.id;
+          name = response.name;
+          console.log('AAAAAA', name, ID);
+          console.log(`/${ID}/permissions`);
 
-    //       FB.api(
-    //         `/${ID}/permissions`,
-    //         'GET',
-    //         {"fields":"birthday,email,hometown"},
-    //         function(response) {
-    //             // Insert your code here
-    //             console.log('FFFFFFFFFF', response);
-    //         }
-    //       );
+          FB.api(
+            `/${ID}/permissions`,
+            'GET',
+            {"fields":"birthday,email,hometown"},
+            function(response) {
+                // Insert your code here
+                console.log('FFFFFFFFFF', response);
+            }
+          );
 
-    //       FB.api(
-    //         `/${ID}/photos`,
-    //         'GET',
-    //         {},
-    //         function(response) {
-    //             console.log('FFFFFFAAAAAFFFF', response);
-    //         }
-    //       );
-    //   }
-    // );
-    
-    FB.login(function(response) {
-      if (response.authResponse) {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-          console.log('Good to see you, ' + response.name + '.');
-        });
-      } else {
-        console.log('User cancelled login or did not fully authorize.');
+          FB.api(
+            `/${ID}/photos`,
+            'GET',
+            {},
+            function(response) {
+                console.log('FFFFFFAAAAAFFFF', response);
+            }
+          );
       }
-    });
+    );
+    
+    // FB.login(function(response) {
+    //   if (response.authResponse) {
+    //     console.log('Welcome!  Fetching your information.... ');
+    //     FB.api('/me', function(response) {
+    //       console.log('Good to see you, ' + response.name + '.');
+    //     });
+    //   } else {
+    //     console.log('User cancelled login or did not fully authorize.');
+    //   }
+    // });
 
     
-    // FB.api('/me', function(response) {
-    //   // console.log('Successful login for: ' + response.name);
-    //   console.log('Good to see you, ' + response.name + '.');
-		// 	console.log('Your user_id , ' + response.id);
-		// 	console.log('Email , ' + response.email);
+    FB.api('/me', function(response) {
+      // console.log('Successful login for: ' + response.name);
+      console.log('Good to see you, ' + response.name + '.');
+			console.log('Your user_id , ' + response.id);
+			console.log('Email , ' + response.email);
       
-    //   // document.getElementById('status').innerHTML = 'Good to see you, ' + response.name + '.';
+      // document.getElementById('status').innerHTML = 'Good to see you, ' + response.name + '.';
       
-    //   let data = "<p>Thanks for logging in, " + response.name + "</p>" 
-    //   data += " <p>Your user_id, " + response.name + "</p>"
-    //   data += " <p>Email, " + response.email + "</p>"
+      let data = "<p>Thanks for logging in, " + response.name + "</p>" 
+      data += " <p>Your user_id, " + response.name + "</p>"
+      data += " <p>Email, " + response.email + "</p>"
  
-    //   // id
-    //   // first_name
-    //   // last_name
-    //   // middle_name
-    //   // name
-    //   // name_format
-    //   // picture
-    //   // short_name
+      // id
+      // first_name
+      // last_name
+      // middle_name
+      // name
+      // name_format
+      // picture
+      // short_name
 
-    //   document.getElementById('status').innerHTML = data; //'Good to see you, ' + response.name + '.';
-    // });
+      document.getElementById('status').innerHTML = data; //'Good to see you, ' + response.name + '.';
+    });
 
 
   }
